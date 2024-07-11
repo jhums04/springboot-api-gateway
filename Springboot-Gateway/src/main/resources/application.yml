@@ -1,0 +1,20 @@
+
+spring:
+  application:
+    name: springboot-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/user/**
+        - id: order-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/order/**
+
+server:
+  port: 8000
+
+
